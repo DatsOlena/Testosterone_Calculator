@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Free & Bioavailable Testosterone calculator</h1>
+    <form id="testosterone-form">
+        <label for="albumin">Albumin:</label>
+        <input type="number" id="albumin" name="albumin" required>
+        <select id="albumin-unit" name="albumin-unit">
+            <option value="g/dL">g/dL</option>
+            <option value="mmol/L">g/L</option>
+
+        </select>
+        <label for="shbg">SHBG:</label>
+        <input type="number" id="shbg" name="shbg" required>
+        <select id="shbg-unit" name="shbg-unit">
+            <option value="nmol/L">nmol/L</option>
+        </select>
+
+        <label for="testosterone">Testosterone:</label>
+        <input type="number" id="testosterone" name="testosterone" required>
+        <select id="testosterone-unit" name="testosterone-unit">
+            <option value="ng/dL">ng/dL</option>
+            <option value="nmol/L">nmol/L</option>
+            <option value="nmol/L">ng/mL</option>
+            <option value="nmol/L">nmol/dL</option>
+            <option value="nmol/L">nmol/mL</option>
+        </select>
+
+        <button type="submit">Calculate</button>
+    </form>
+
+    <div id="result"></div>
+
+    <script>
+        document.getElementById('testosterone-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+        });
+
+
+        function displayResult(level) {
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = `<h2>Your Free Testosterone Level: ${level.toFixed(2)} ng/dL</h2>`;
+            resultDiv.innerHTML = `<h2>Your Bioavailable Testosterone Level: ${(level * 0.5).toFixed(2)} ng/dL</h2>`;
+        }
+    </script>
+</body>
+
+</html>
